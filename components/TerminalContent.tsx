@@ -1,8 +1,44 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PORTFOLIO_DATA } from '../constants';
 
 export const TerminalContent: React.FC = () => {
+  const [currentTime, setCurrentTime] = useState<string>('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZoneName: 'short'
+      });
+      
+      const parts = formatter.formatToParts(now);
+      const formattedDate = parts.map(p => {
+        if (p.type === 'day') return p.value;
+        return p.value;
+      }).join('');
+      
+      // Format: Mon, 16 Feb 2026 17:28:46 GMT-6
+      const timeString = now.toLocaleDateString('en-US', { weekday: 'short' }) + ', ' +
+        now.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' }) + ' ' +
+        now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+      
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const keywords = ['ReactJS', 'NodeJS', 'PHP', 'Laravel', 'Codeigniter', 'NextJS', 'WordPress', 'WooCommerce', 'SQL Server', 'MySQL', 'Figma', 'Elementor', 'Divi', 'SEO'];
 
   const highlightText = (text: string) => {
@@ -23,7 +59,7 @@ export const TerminalContent: React.FC = () => {
       {/* Header / Intro */}
       <header className="mb-12">
         <div className="text-primary font-mono text-[11px] mb-8 opacity-60">
-          Last login: Mon, 16 Feb 2026 17:28:46 GMT on ttys001
+          Last login: {currentTime || 'Loading...'}
         </div>
         
         <div className="mb-8">
