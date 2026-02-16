@@ -21,7 +21,7 @@ const NavLink: React.FC<{ href: string; label: string }> = ({ href, label }) => 
 
 export const Sidebar: React.FC = () => {
   return (
-    <aside className="w-64 bg-terminal-sidebar border-r border-white/5 flex flex-col p-6 hidden lg:flex shrink-0">
+    <aside className="w-64 bg-terminal-sidebar-light dark:bg-terminal-sidebar border-r border-gray-200 dark:border-white/5 flex flex-col p-6 hidden lg:flex shrink-0 transition-colors">
       <div className="mb-10">
         {/* Contenedor con borde azul según el diseño */}
         <div className="border border-blue-500/40 p-4 rounded-sm">

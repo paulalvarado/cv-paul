@@ -47,9 +47,13 @@
                 extend: {
                     colors: {
                         primary: "#22c55e",
+                "background-light": "#f5f5f5",
                         "background-dark": "#121212",
+                "terminal-header-light": "#f3f4f6",
                         "terminal-header": "#1e1e1e",
+                "terminal-body-light": "#ffffff",
                         "terminal-body": "#0a0a0a",
+                "terminal-sidebar-light": "#f8fafc",
                         "terminal-sidebar": "#141414",
                     },
                     fontFamily: {
@@ -63,21 +67,27 @@
     <style type="text/tailwindcss">
         @layer base {
             body {
-                @apply bg-background-dark font-mono text-gray-300 selection:bg-primary selection:text-black antialiased overflow-hidden;
+            @apply bg-background-light font-mono text-gray-900 selection:bg-primary selection:text-black antialiased overflow-hidden dark:bg-background-dark dark:text-gray-300;
             }
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #141414;
+          background: #e5e7eb;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
+          background: #9ca3af;
+          border-radius: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #22c55e;
+          background: #22c55e;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-track {
+          background: #141414;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #333;
         }
         .cursor {
             display: inline-block;
