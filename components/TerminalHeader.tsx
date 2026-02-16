@@ -26,7 +26,7 @@ export const TerminalHeader: React.FC = () => {
         <div className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] border border-black/10"></div>
         <div className="w-3.5 h-3.5 rounded-full bg-[#27c93f] border border-black/10"></div>
       </div>
-      <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-gray-600 dark:text-gray-500 font-bold text-end md:text-center">
+      <div className="flex items-center gap-2 text-[10px] sm:text-sm uppercase tracking-[0.2em] text-gray-600 dark:text-gray-500 font-bold text-end md:text-center">
         <span className="material-symbols-outlined text-sm">terminal</span>
         paul@portfolio: ~/main_branch{dimensions.width > 767 ? ` — ${dimensions.width}x${dimensions.height}` : ''}
       </div>

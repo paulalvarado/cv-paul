@@ -80,7 +80,7 @@ export const TerminalContent: React.FC = () => {
              </div>
           </div>
           
-          <div className="flex items-center text-xl md:text-2xl font-mono mt-8">
+          <div className="flex items-center text-sm md:text-2xl font-mono mt-8">
             <span className="text-primary font-bold mr-3">➜</span>
             <span className="text-blue-400 mr-3">~/developer</span>
             <span className="text-primary font-bold mr-3">$</span>
@@ -97,8 +97,8 @@ export const TerminalContent: React.FC = () => {
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Acerca de Mi</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
-        <div className="bg-white/80 dark:bg-[#1a1a1a]/40 border border-gray-200 dark:border-white/5 p-8 rounded-xl backdrop-blur-sm transition-colors">
-          <p className="text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-mono">
+        <div className="bg-white/80 dark:bg-[#1a1a1a]/40 border border-gray-200 dark:border-white/5 p-4 sm:p-8 rounded-xl backdrop-blur-sm transition-colors">
+          <p className="text-sm sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-mono">
             {highlightText(PORTFOLIO_DATA.about)}
           </p>
         </div>
@@ -108,7 +108,7 @@ export const TerminalContent: React.FC = () => {
       <section className="max-w-4xl" id="history">
         <div className="flex items-center gap-4 mb-8">
           <span className="text-primary font-bold text-2xl">#</span>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Work History</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Work History</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
         <div className="space-y-12">
@@ -119,7 +119,7 @@ export const TerminalContent: React.FC = () => {
                    <div className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
                    <h3 className="text-primary font-bold text-xl tracking-tight">{exp.role}</h3>
                 </div>
-                <span className="text-xs text-gray-500 font-mono mt-1 md:mt-0 uppercase tracking-widest">{exp.period}</span>
+                <span className="text-xs text-gray-500 font-mono mt-1 md:mt-0 uppercase tracking-widest ml-4 sm:ml-0">{exp.period}</span>
               </div>
               <div className="text-blue-400/80 text-sm mb-4 font-bold flex items-center gap-2 pl-5">
                 <span className="material-symbols-outlined text-xs">business</span>
@@ -142,12 +142,12 @@ export const TerminalContent: React.FC = () => {
       <section className="max-w-5xl" id="skills">
         <div className="flex items-center gap-4 mb-8">
           <span className="text-primary font-bold text-2xl">#</span>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Skills --list</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Skills --list</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
           {PORTFOLIO_DATA.skills.map((group, idx) => (
-            <div key={idx} className="bg-white/80 dark:bg-terminal-sidebar/60 border border-gray-200 dark:border-white/5 p-6 rounded-lg hover:border-primary/20 transition-colors">
+            <div key={idx} className="bg-white/80 dark:bg-terminal-sidebar/60 border border-gray-200 dark:border-white/5 p-4 sm:p-6 rounded-lg hover:border-primary/20 transition-colors">
               <div className="text-[10px] text-primary mb-4 font-bold tracking-widest uppercase">{group.name.replace('// ', '')}</div>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item, i) => (
@@ -169,7 +169,7 @@ export const TerminalContent: React.FC = () => {
       <section className="max-w-4xl pb-20" id="contacts">
         <div className="flex items-center gap-4 mb-8">
           <span className="text-primary font-bold text-2xl">#</span>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Contact</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Contact</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -196,7 +196,7 @@ export const TerminalContent: React.FC = () => {
               </div>
             </a>
           </div>
-          <div className="bg-white/80 dark:bg-white/[0.02] p-6 rounded-lg border border-gray-200 dark:border-white/5 transition-colors">
+          <div className="bg-white/80 dark:bg-white/[0.02] p-4 sm:p-6 rounded-lg border border-gray-200 dark:border-white/5 transition-colors">
             <div className="text-[10px] text-gray-600 font-mono mb-6 uppercase tracking-widest font-bold">// professional_vouch</div>
             <div className="space-y-8">
               {PORTFOLIO_DATA.contact.references.map((ref, idx) => (
@@ -214,7 +214,7 @@ export const TerminalContent: React.FC = () => {
         </div>
       </section>
 
-      <div className="pt-8 border-t border-white/5 flex items-center text-sm font-mono opacity-50">
+      <div className="pt-8 border-t border-white/5 flex items-center text-[10px] sm:text-sm font-mono opacity-50">
         <span className="text-primary font-bold mr-3">➜</span>
         <span className="text-blue-400 mr-2">~/portfolio</span>
         <span className="text-gray-500 animate-pulse">_</span>
