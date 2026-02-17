@@ -11,7 +11,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 lg:p-10 bg-background-light dark:bg-background-dark transition-colors">
+    <div className="h-dvh w-full flex items-center justify-center p-4 lg:p-10 bg-background-light dark:bg-background-dark transition-colors">
       <TerminalWindow />
 
       <button
