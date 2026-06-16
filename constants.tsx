@@ -85,14 +85,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
     email: "paulperezsv@gmail.com",
     phone: "+503 7956 8140",
     references: [
-      { 
-        name: "Ing. Raúl Vigil", 
-        position: "Full Stack Developer - Web Informática S. A. de C. V.", 
-        phone: "+503 7596 5375",
-        email: "rauleduardovigil@gmail.com"
-      },
-      { name: "Fernando Marinero", position: "Technical Lead - CityLab", phone: "+503 7656 4206" },
-      { name: "Kevin Arce", position: "AWS Dev Engineer - Telus", phone: "+1 613 7014 971" }
+      { name: "Ing. Raúl Vigil", position: "Full Stack Developer - Web Informática S. A. de C. V." },
+      { name: "Fernando Marinero", position: "Technical Lead - CityLab" },
+      { name: "Kevin Arce", position: "AWS Dev Engineer - Telus" }
     ]
   }
 };

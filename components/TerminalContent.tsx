@@ -203,10 +203,6 @@ export const TerminalContent: React.FC = () => {
                 <div key={idx} className="relative pl-6 border-l-2 border-primary/20 hover:border-primary transition-colors">
                   <div className="text-sm font-bold text-gray-900 dark:text-white font-mono">{ref.name}</div>
                   <div className="text-[11px] text-gray-500 mb-1 italic">{ref.position}</div>
-                  <div className="text-[11px] text-primary font-bold font-mono tracking-tight">{ref.phone}</div>
-                  {ref.email && (
-                    <div className="text-[10px] text-gray-600 font-mono mt-1 opacity-70">{ref.email}</div>
-                  )}
                 </div>
               ))}
             </div>
