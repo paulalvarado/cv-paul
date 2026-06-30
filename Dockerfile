@@ -13,7 +13,7 @@ WORKDIR /app
 # ------------------------------------------------------------
 COPY pnpm-lock.yaml package.json ./
 RUN pnpm install --frozen-lockfile --ignore-scripts && \
-    node node_modules/esbuild/install.js
+    pnpm rebuild esbuild
 
 # ------------------------------------------------------------
 # Capa 2: Código fuente + build
