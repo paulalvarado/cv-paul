@@ -11,7 +11,7 @@ WORKDIR /app
 # ------------------------------------------------------------
 # Capa 1: Dependencias (se cachea mientras lock no cambie)
 # ------------------------------------------------------------
-COPY pnpm-lock.yaml package.json ./
+COPY pnpm-lock.yaml package.json pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 # ------------------------------------------------------------
