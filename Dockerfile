@@ -4,7 +4,7 @@
 FROM node:22-alpine AS build
 
 # Habilitar pnpm via corepack
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@9 --activate
 
 WORKDIR /app
 
@@ -12,8 +12,7 @@ WORKDIR /app
 # Capa 1: Dependencias (se cachea mientras lock no cambie)
 # ------------------------------------------------------------
 COPY pnpm-lock.yaml package.json ./
-RUN pnpm install --frozen-lockfile --ignore-scripts && \
-    pnpm rebuild esbuild
+RUN pnpm install --frozen-lockfile
 
 # ------------------------------------------------------------
 # Capa 2: Código fuente + build
