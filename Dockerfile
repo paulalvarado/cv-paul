@@ -11,8 +11,9 @@ WORKDIR /app
 # ------------------------------------------------------------
 # Capa 1: Dependencias (se cachea mientras lock no cambie)
 # ------------------------------------------------------------
-COPY pnpm-lock.yaml package.json pnpm-workspace.yaml .npmrc ./
-RUN pnpm install --frozen-lockfile
+COPY pnpm-lock.yaml package.json ./
+RUN pnpm install --frozen-lockfile --ignore-scripts && \
+    node node_modules/esbuild/install.js
 
 # ------------------------------------------------------------
 # Capa 2: Código fuente + build
