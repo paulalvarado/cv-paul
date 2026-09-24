@@ -90,7 +90,7 @@ export const TerminalContent: React.FC = () => {
     <main className="flex-1 overflow-y-auto custom-scrollbar p-8 lg:p-12 space-y-20 scroll-smooth bg-terminal-body-light dark:bg-terminal-body text-gray-900 dark:text-gray-300 transition-colors">
       {/* Header / Intro */}
       <header className="mb-12">
-        <div className="text-primary font-mono text-[11px] mb-8 opacity-60">
+        <div className="text-primary-ink dark:text-primary font-mono text-[11px] mb-8 opacity-80 dark:opacity-60">
           Last login: {currentTime || 'Loading...'}
         </div>
         
@@ -113,9 +113,9 @@ export const TerminalContent: React.FC = () => {
           </div>
           
           <div className="flex items-center text-sm md:text-2xl font-mono mt-8">
-            <span className="text-primary font-bold mr-3">➜</span>
-            <span className="text-blue-400 mr-3">~/developer</span>
-            <span className="text-primary font-bold mr-3">$</span>
+            <span className="text-primary-ink dark:text-primary font-bold mr-3">➜</span>
+            <span className="text-blue-700 dark:text-blue-400 mr-3">~/developer</span>
+            <span className="text-primary-ink dark:text-primary font-bold mr-3">$</span>
             <span className="text-gray-900 dark:text-white">whoami</span>
             <span className="cursor ml-2"></span>
           </div>
@@ -123,9 +123,9 @@ export const TerminalContent: React.FC = () => {
       </header>
 
       {/* About Section */}
-      <section className="max-w-4xl" id="whoami">
+      <section className="max-w-4xl scroll-mt-6" id="whoami">
         <div className="flex items-center gap-4 mb-8">
-          <span className="text-primary font-bold text-2xl">#</span>
+          <span className="text-primary-ink dark:text-primary font-bold text-2xl">#</span>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Acerca de Mi</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
@@ -137,30 +137,35 @@ export const TerminalContent: React.FC = () => {
       </section>
 
       {/* Experience Section */}
-      <section className="max-w-4xl" id="history">
+      <section className="max-w-4xl scroll-mt-6" id="history">
         <div className="flex items-center gap-4 mb-8">
-          <span className="text-primary font-bold text-2xl">#</span>
+          <span className="text-primary-ink dark:text-primary font-bold text-2xl">#</span>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Work History</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
-        <div className="space-y-12">
+        <div className="relative space-y-10">
+          <span
+            aria-hidden="true"
+            className="absolute left-[3px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/50 via-gray-300 to-transparent dark:from-primary/40 dark:via-white/10"
+          />
           {PORTFOLIO_DATA.experiences.map((exp, idx) => (
-            <div key={idx} className="group">
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                   <div className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
-                   <h3 className="text-primary font-bold text-xl tracking-tight">{exp.role}</h3>
-                </div>
-                <span className="text-xs text-gray-500 font-mono mt-1 md:mt-0 uppercase tracking-widest ml-4 sm:ml-0">{exp.period}</span>
+            <div key={idx} className="group relative pl-6 sm:pl-8">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-2 w-[7px] h-[7px] rounded-full bg-primary-ink/50 dark:bg-primary/50 ring-4 ring-terminal-body-light dark:ring-terminal-body group-hover:bg-primary-ink dark:group-hover:bg-primary transition-colors"
+              />
+              <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between mb-2">
+                <h3 className="text-primary-ink dark:text-primary font-bold text-lg sm:text-xl tracking-tight">{exp.role}</h3>
+                <span className="text-[10px] sm:text-xs text-gray-600 dark:text-gray-500 font-mono uppercase tracking-widest">{exp.period}</span>
               </div>
-              <div className="text-blue-400/80 text-sm mb-4 font-bold flex items-center gap-2 pl-5">
+              <div className="text-blue-700/90 dark:text-blue-400/80 text-sm mb-4 font-bold flex items-center gap-2">
                 <span className="material-symbols-outlined text-xs">business</span>
                 {exp.company}
               </div>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400 pl-5">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
                 {exp.highlights.map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
-                    <span className="text-primary font-bold shrink-0 mt-0.5">»</span>
+                    <span className="text-primary-ink/70 dark:text-primary font-bold shrink-0 mt-0.5">»</span>
                     <span>{highlightText(item)}</span>
                   </li>
                 ))}
@@ -171,23 +176,23 @@ export const TerminalContent: React.FC = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="max-w-5xl" id="skills">
+      <section className="max-w-5xl scroll-mt-6" id="skills">
         <div className="flex items-center gap-4 mb-8">
-          <span className="text-primary font-bold text-2xl">#</span>
+          <span className="text-primary-ink dark:text-primary font-bold text-2xl">#</span>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Skills --list</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start font-mono">
           {PORTFOLIO_DATA.skills.map((group, idx) => (
-            <div key={idx} className="bg-white/80 dark:bg-terminal-sidebar/60 border border-gray-200 dark:border-white/5 p-4 sm:p-6 rounded-lg hover:border-primary/20 transition-colors">
-              <div className="text-[10px] text-primary mb-4 font-bold tracking-widest uppercase">{group.name.replace('// ', '')}</div>
+            <div key={idx} className="bg-white/80 dark:bg-terminal-sidebar/60 border border-gray-200 dark:border-white/5 p-4 sm:p-5 rounded-lg transition-colors">
+              <div className="text-[10px] text-primary-ink dark:text-primary mb-4 font-bold tracking-widest uppercase">{group.name.replace('// ', '')}</div>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item, i) => (
-                  <span 
-                    key={i} 
-                    className="flex items-center gap-2 px-3 py-1.5 text-[11px] bg-gray-100/80 dark:bg-white/[0.03] border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 rounded-md hover:text-primary hover:border-primary/40 transition-all cursor-default group"
+                  <span
+                    key={i}
+                    className="flex items-center gap-2 px-3 py-1.5 text-[11px] bg-gray-100/80 dark:bg-white/[0.03] border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 rounded-md"
                   >
-                    <span className="text-primary/40 group-hover:text-primary transition-colors">●</span>
+                    <span className="text-primary-ink/50 dark:text-primary/40">●</span>
                     {item}
                   </span>
                 ))}
@@ -198,15 +203,15 @@ export const TerminalContent: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="max-w-4xl pb-20" id="contacts">
+      <section className="max-w-4xl pb-20 scroll-mt-6" id="contacts">
         <div className="flex items-center gap-4 mb-8">
-          <span className="text-primary font-bold text-2xl">#</span>
+          <span className="text-primary-ink dark:text-primary font-bold text-2xl">#</span>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wider">Contact</h2>
           <div className="h-px bg-white/10 flex-1"></div>
         </div>
         <div className="rounded-lg border border-gray-200 dark:border-white/5 overflow-hidden">
           <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 bg-gray-100/70 dark:bg-white/[0.02] border-b border-gray-200 dark:border-white/5">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">// direct_access</span>
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gray-600 dark:text-gray-400">// direct_access</span>
             <span aria-hidden="true" className="font-mono text-sm leading-none text-primary animate-pulse">_</span>
           </div>
           <div className="divide-y divide-gray-200 dark:divide-white/5">
@@ -217,10 +222,10 @@ export const TerminalContent: React.FC = () => {
                 {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="group flex items-center gap-4 sm:gap-6 px-4 sm:px-6 py-4 sm:py-5 transition-colors duration-200 ease-out hover:bg-gray-100/70 dark:hover:bg-white/[0.03] focus-visible:outline-none focus-visible:bg-gray-100/70 dark:focus-visible:bg-white/[0.03] focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-primary/60"
               >
-                <span className="shrink-0 text-primary transition-transform duration-200 ease-out group-hover:scale-110 group-hover:-rotate-3">
+                <span className="shrink-0 text-primary-ink dark:text-primary transition-transform duration-200 ease-out group-hover:scale-110 group-hover:-rotate-3">
                   {link.icon}
                 </span>
-                <span className="hidden sm:block w-24 shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500 group-hover:text-primary/80 transition-colors">
+                <span className="hidden sm:block w-24 shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gray-600 dark:text-gray-400 group-hover:text-primary-ink dark:group-hover:text-primary/80 transition-colors">
                   {link.label}
                 </span>
                 <span className="min-w-0 break-all sm:break-normal font-mono text-[13px] sm:text-sm text-gray-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
@@ -232,7 +237,7 @@ export const TerminalContent: React.FC = () => {
                 />
                 <span
                   aria-hidden="true"
-                  className="material-symbols-outlined shrink-0 text-[18px] text-primary opacity-30 sm:opacity-0 transition-all duration-200 ease-out sm:-translate-x-2 sm:group-hover:translate-x-0 sm:group-hover:opacity-100"
+                  className="material-symbols-outlined shrink-0 text-[18px] text-primary-ink dark:text-primary opacity-30 sm:opacity-0 transition-all duration-200 ease-out sm:-translate-x-2 sm:group-hover:translate-x-0 sm:group-hover:opacity-100"
                 >
                   arrow_outward
                 </span>
@@ -243,8 +248,8 @@ export const TerminalContent: React.FC = () => {
       </section>
 
       <div className="pt-8 border-t border-white/5 flex items-center text-[10px] sm:text-sm font-mono opacity-50">
-        <span className="text-primary font-bold mr-3">➜</span>
-        <span className="text-blue-400 mr-2">~/portfolio</span>
+        <span className="text-primary-ink dark:text-primary font-bold mr-3">➜</span>
+        <span className="text-blue-700 dark:text-blue-400 mr-2">~/portfolio</span>
         <span className="text-gray-500 animate-pulse">_</span>
         <span className="ml-4 text-[9px] uppercase tracking-[0.4em]">End of session.</span>
       </div>
