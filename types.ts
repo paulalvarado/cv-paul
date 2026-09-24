@@ -31,7 +31,8 @@ export interface PortfolioData {
   skills: SkillGroup[];
   contact: {
     email: string;
-    phone: string;
+    linkedin: string;
+    github: string;
     references: Reference[];
   };
 }
